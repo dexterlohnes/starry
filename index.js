@@ -7,8 +7,7 @@ const Promise = require('bluebird');
 const redis = require('redis');
 Promise.promisifyAll(redis);
 const app = express();
-const db = require('./TintsDBConnector.js');
-const tints = require('./tintsMessages.js');
+const db = require('./StarryDBConnector.js');
 
 /// Flags / constants
 const IN_MAINTENANCE_MODE = false;
@@ -30,7 +29,6 @@ app.get('/', function (req, res) {
 app.post('/tip/', function (req, res) {
     console.log('someone sent a tip!')
     console.log(JSON.stringify(req));
-    // routeMessagingEvents(req);
     res.sendStatus(200);
 });
 
@@ -38,4 +36,3 @@ app.post('/tip/', function (req, res) {
 app.listen(app.get('port'), function() {
     console.log('running on port', app.get('port'));
 });
-
