@@ -26,7 +26,7 @@ app.get('/', function (req, res) {
     res.send('Hello world, I am a chat bot');
 });
 
-app.post('/tip/', function (req, res) {
+app.post('/slack/tip/', function (req, res) {
     console.log('someone sent a tip!')
     console.log(JSON.stringify(req));
     res.sendStatus(200);
