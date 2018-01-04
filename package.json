@@ -1,0 +1,25 @@
+{
+  "name": "starry",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dexterlohnes/starry.git"
+  },
+  "author": "Dexter Lohnes",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dexterlohnes/IFTest/issues"
+  },
+  "homepage": "https://github.com/dexterlohnes/IFTest#readme",
+  "dependencies": {
+    "body-parser": "^1.16.1",
+    "express": "^4.14.1",
+    "redis": "^2.7.1",
+    "request": "^2.79.0"
+  }
+}
