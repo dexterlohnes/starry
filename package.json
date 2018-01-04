@@ -13,9 +13,9 @@
   "author": "Dexter Lohnes",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/dexterlohnes/IFTest/issues"
+    "url": "https://github.com/dexterlohnes/starry/issues"
   },
-  "homepage": "https://github.com/dexterlohnes/IFTest#readme",
+  "homepage": "https://github.com/dexterlohnes/starry#readme",
   "dependencies": {
     "bluebird": "^3.5.0",
     "body-parser": "^1.16.1",
