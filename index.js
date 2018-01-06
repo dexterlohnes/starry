@@ -32,6 +32,12 @@ app.post('/slack/tip', function (req, res) {
     res.sendStatus(200);
 });
 
+app.post('/slack/withdraw', function (req, res) {
+    console.log('someone wants to make a withdrawal!')
+    console.log(JSON.stringify(req.body))
+    res.sendStatus(200);
+});
+
 // Spin up the server
 app.listen(app.get('port'), function() {
     console.log('running on port', app.get('port'));
