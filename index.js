@@ -29,7 +29,6 @@ app.get('/', function (req, res) {
 app.post('/slack/tip', function (req, res) {
     console.log('someone sent a tip!')
     console.log(JSON.stringify(req.body))
-    console.log(JSON.stringify(req.body.entry[0]))
     res.sendStatus(200);
 });
 
