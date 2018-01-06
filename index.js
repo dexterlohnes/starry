@@ -12,7 +12,7 @@ const db = require('./StarryDBConnector.js');
 /// Flags / constants
 const IN_MAINTENANCE_MODE = false;
 
-/// Set up exress app
+/// Set up express app
 app.set('port', (process.env.PORT || 5000));
 
 // Process application/x-www-form-urlencoded
