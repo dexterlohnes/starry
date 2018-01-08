@@ -10,10 +10,10 @@ class SlackHelper {
      *
      * See: https://api.slack.com/slash-commands#how_do_commands_work
      */
-    // function extractUserid(str) {
-    //     let result = str.slice(str.indexOf("@")+1, str.indexOf("|"));
-    //     return result
-    // }
+    function extractUserid(str) {
+        let result = str.slice(str.indexOf("@")+1, str.indexOf("|"));
+        return result
+    }
 }
 
 module.exports = SlackUtils

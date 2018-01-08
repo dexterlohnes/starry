@@ -1,7 +1,7 @@
 module.exports = async () => {
   require('dotenv').config({path: './.env.' + process.env.NODE_ENV })
 
-  models = await require('../src/models')()
+  models = await require('../src/models/index')()
 
   // Refresh all tables ...
   for (model in models) {

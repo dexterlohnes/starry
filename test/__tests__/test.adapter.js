@@ -1,44 +1,50 @@
 const assert = require('assert')
-const Adapter = require('../src/adapters/abstract-adapter')
+const Adapter = require('../../src/adapters/abstract-adapter')
 
 describe('adapter', async () => {
 
   let adapter;
 
   beforeEach(async () => {
-    const config = await require('./setup')()
+    const config = await require('../setup')()
     adapter = new Adapter(config)
   })
 
   describe('receiveWithdrawalRequest', () => {
-    it ('should call withdrawalInvalidAddress if invalid address is given', (done) => {
-      adapter.on('withdrawalInvalidAddress', () => done())
-      adapter.receiveWithdrawalRequest({
-        adapter: 'testing',
-        amount: '666',
-        uniqueId: 'foo',
-        hash: 'bar',
-        // someone gave her secret away :-(
-        address: 'SBEZDGJO5WYUKVCSE44MANQCJCNOVBPOBJF4RNSAQGKQVTYKOTRUSRNH'
-      })
-    })
+    test(
+      'should call withdrawalInvalidAddress if invalid address is given',
+      (done) => {
+        adapter.on('withdrawalInvalidAddress', () => done())
+        adapter.receiveWithdrawalRequest({
+          adapter: 'testing',
+          amount: '666',
+          uniqueId: 'foo',
+          hash: 'bar',
+          // someone gave her secret away :-(
+          address: 'SBEZDGJO5WYUKVCSE44MANQCJCNOVBPOBJF4RNSAQGKQVTYKOTRUSRNH'
+        })
+      }
+    )
 
-    it ('should call withdrawalFailedWithInsufficientBalance if withdrawal exceed balance', (done) => {
-      adapter.on('withdrawalFailedWithInsufficientBalance', () => done())
-      adapter.receiveWithdrawalRequest({
-        adapter: 'testing',
-        amount: '666',
-        uniqueId: 'foo',
-        hash: 'bar',
-        // someone gave her secret away :-(
-        address: 'GA2B3GCDNVMANF4TT44KJNYU7TBVTKWY5XWF3Q3BJAPXRPBHXAEIFGBD'
-      })
-    })
+    test(
+      'should call withdrawalFailedWithInsufficientBalance if withdrawal exceed balance',
+      (done) => {
+        adapter.on('withdrawalFailedWithInsufficientBalance', () => done())
+        adapter.receiveWithdrawalRequest({
+          adapter: 'testing',
+          amount: '666',
+          uniqueId: 'foo',
+          hash: 'bar',
+          // someone gave her secret away :-(
+          address: 'GA2B3GCDNVMANF4TT44KJNYU7TBVTKWY5XWF3Q3BJAPXRPBHXAEIFGBD'
+        })
+      }
+    )
   })
 
   describe('receivePotentialTip', () => {
 
-    it ('should call onTipWithInsufficientBalance if source cant pay', (done) => {
+    test('should call onTipWithInsufficientBalance if source cant pay', (done) => {
       let tip = {
         amount: '1.12',
         adapter: 'testing',
@@ -50,7 +56,7 @@ describe('adapter', async () => {
 
     })
 
-    it ('should reject with onTipReferenceError if one tips herself', (done) => {
+    test('should reject with onTipReferenceError if one tips herself', (done) => {
       adapter.Account.createAsync({
         adapter: 'testing',
         uniqueId: 'foo',
@@ -67,7 +73,7 @@ describe('adapter', async () => {
       })
     })
 
-    it ('should transfer money and call with onTip', (done) => {
+    test('should transfer money and call with onTip', (done) => {
       adapter.Account.createAsync({
         adapter: 'testing',
         uniqueId: 'foo',
