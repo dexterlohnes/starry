@@ -144,7 +144,7 @@ module.exports = (db) => {
           }
           account = await Account.createAsync(doc)
           if(newAccountCreatedCallback) {
-            newAccountCreatedCallback()
+            newAccountCreatedCallback(uniqueId)
           }
         }
 
