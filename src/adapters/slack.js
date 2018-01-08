@@ -20,7 +20,6 @@ app.post('/slack/tip', function (req, res) {
     let msg = new slmessage(req.body)
     console.log(msg)
     console.log("Unique user id: " + msg.uniqueUserID)
-    res.sendStatus(200);
     // If the user is not registered, return an error appropriate. Maybe instruct them how to register
     // else if the user is registered
     // Check the amount against the user's current balance
@@ -39,6 +38,8 @@ app.post('/slack/tip', function (req, res) {
     // add the tip to the receiver's balance
     // send a success message to the sender
     // send a personal message to the receiver alerting them they received a tip
+    res.sendStatus(200);
+
 });
 
 app.post('/slack/withdraw', function (req, res) {
