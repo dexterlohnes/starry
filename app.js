@@ -8,13 +8,13 @@ const Slack = require('./src/adapters/slack')
 async function bootstrap () {
 
   const models = await require('./src/models')()
-  const stellar = await require('./src/stellar')(models)
-
-  let config = { models, stellar }
-
-  const adapters = [
-    new Slack(config)
-  ]
+  // const stellar = await require('./src/stellar')(models)
+  //
+  // let config = { models, stellar }
+  //
+  // const adapters = [
+  //   new Slack(config)
+  // ]
 
 }
 
