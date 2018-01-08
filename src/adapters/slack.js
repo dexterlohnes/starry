@@ -2,6 +2,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
 const Adapter = require('./abstract-adapter')
+const slmessage = require('../slack_specific/slack-mesage')
 
 /// Set up exress app
 app.set('port', (process.env.PORT || 5000));
@@ -16,7 +17,9 @@ app.get('/', function (req, res) {
 
 app.post('/slack/tip', function (req, res) {
     console.log('someone sent a tip!')
-    console.log(JSON.stringify(req.body))
+    let msg = new slmessage(req.body)
+    console.log(msg)
+    console.log("Unique user id: " + msg.uniqueUserID)
     res.sendStatus(200);
     // If the user is not registered, return an error appropriate. Maybe instruct them how to register
     // else if the user is registered
