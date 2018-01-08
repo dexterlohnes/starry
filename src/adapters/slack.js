@@ -200,4 +200,4 @@ class Slack extends Adapter {
   }
 }
 
-module.exports = Reddit
+module.exports = Slack
