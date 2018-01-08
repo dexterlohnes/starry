@@ -1,5 +1,5 @@
 const assert = require('assert')
-const utils = require('../../src/utils')
+const utils = require('../src/utils')
 
 
 describe('models / transaction', async () => {
@@ -8,13 +8,13 @@ describe('models / transaction', async () => {
   let Account;
 
   beforeEach(async () => {
-    const config = await require('../setup')()
+    const config = await require('./setup')()
     Transaction = config.models.transaction
     Account = config.models.account
   })
 
   describe('deposit', () => {
-    test('should credit deposits to associated accounts', async () => {
+    it ('should credit deposits to associated accounts', async () => {
       await Account.createAsync({
         adapter: 'testing',
         uniqueId: 'foo',
@@ -44,7 +44,7 @@ describe('models / transaction', async () => {
   })
 
   describe('latest', () => {
-    test('should only get the last created one', async () => {
+    it ('should only get the last created one', async () => {
       await Transaction.createAsync({
             memoId: 'a',
             amount: '5.0000000',
